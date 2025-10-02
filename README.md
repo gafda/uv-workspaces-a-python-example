@@ -6,6 +6,7 @@ This repository demonstrates how to structure a **Python monorepo** using [`uv`]
 
 ```
 .
+├── ...
 ├── README.md
 ├── pyproject.toml       # Root workspace configuration
 ├── uv.lock              # uv lock file for reproducible installs
@@ -32,6 +33,8 @@ This repository demonstrates how to structure a **Python monorepo** using [`uv`]
 ## 🚀 Getting Started
 
 ### 1. Initialize the Root Workspace
+
+Starting from scratch, run:
 
 ```bash
 uv init
@@ -92,7 +95,7 @@ This links the internal libraries as dependencies in the app.
 
 ### 6. Run an App
 
-Run apps directly via `uv`:
+Run apps directly via `uv` (_the proper way_):
 
 ```bash
 uv run apps/server/main.py
