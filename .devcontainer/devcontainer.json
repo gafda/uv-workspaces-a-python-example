@@ -1,0 +1,96 @@
+{
+  // --------------------------------------------------------
+  // [name] - Name of the development container
+  // --------------------------------------------------------
+  "name": "uv-python-solution",
+
+  // --------------------------------------------------------
+  // [build] - Configure the build process
+  // --------------------------------------------------------
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "args": {}
+  },
+
+  // --------------------------------------------------------
+  // [features] - Install additional tools and runtimes
+  // --------------------------------------------------------
+  "features": {
+    // "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+    //   "version": "latest",
+    //   "moby": "false",
+    //   "dockerDashComposeVersion": "v2",
+    //   "installDockerBuildx": "true",
+    //   "installDockerComposeSwitch": "true"
+    //   "moby": "false",
+    //   "dockerDashComposeVersion": "v2",
+    //   "installDockerBuildx": "true",
+    //   "installDockerComposeSwitch": "true"
+    // }
+
+    // "ghcr.io/devcontainers/features/nvidia-cuda:1": {
+    //     "installCudnn": false
+    // }
+  },
+
+  // --------------------------------------------------------
+  // [customizations] - Configure the development container
+  // --------------------------------------------------------
+  "customizations": {
+    "vscode": {
+      "extensions": [
+          "bierner.markdown-mermaid",
+          "dotenv.dotenv-vscode",
+          "EditorConfig.EditorConfig",
+          "mechatroner.rainbow-csv",
+          "ms-azuretools.vscode-docker",
+          "ms-python.debugpy",
+          "ms-python.python",
+          "charliermarsh.ruff",
+          "njpwerner.autodocstring",
+          "tamasfe.even-better-toml"
+      ]
+    }
+  },
+
+  // --------------------------------------------------------
+  // [forwardPorts] - Expose container ports to local machine
+  // --------------------------------------------------------
+  "forwardPorts": [],
+
+  // --------------------------------------------------------
+  // [portsAttributes] - Configure port forwarding behavior
+  // --------------------------------------------------------
+  "portsAttributes": {},
+
+  // --------------------------------------------------------
+  // [remoteEnv] - Set environment variables for the container
+  // --------------------------------------------------------
+  "containerEnv": {
+    "UV_LINK_MODE": "copy"
+  },
+
+  // --------------------------------------------------------------
+  // [postCreateCommand] - Run setup tasks after container creation
+  // --------------------------------------------------------------
+  "postCreateCommand": "apt-get moo",
+
+  // --------------------------------------------------------
+  // [remoteUser] - Set the default user for the container
+  // --------------------------------------------------------
+  "runArgs": [
+    "--name=devcontainer-uv-python-solution",
+    "--privileged",
+    "--network=host"
+    // "--gpus=all"
+  ],
+
+  // --------------------------------------------------------
+  // [remoteUser] - Set the default user for the container
+  // --------------------------------------------------------
+  "mounts": [
+    // Add volume mount for NVIDIA runtime (if using nvidia-docker approach)
+    // "source=/dev/video0/,target=/dev/video0/,type=bind"
+  ]
+}

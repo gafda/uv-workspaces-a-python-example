@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "bierner.markdown-mermaid",
+    "dotenv.dotenv-vscode",
+    "EditorConfig.EditorConfig",
+    "ms-azuretools.vscode-docker",
+    "ms-python.debugpy",
+    "ms-python.python",
+    "charliermarsh.ruff",
+    "njpwerner.autodocstring",
+    "tamasfe.even-better-toml"
+  ]
+}
