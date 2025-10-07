@@ -37,7 +37,7 @@ This repository demonstrates how to structure a **Python monorepo** using [`uv`]
 Starting from scratch, run:
 
 ```bash
-uv init
+uv init --python 3.12
 ```
 
 This creates a `pyproject.toml` file. You can delete the generated `main.py` as we will structure apps separately.
@@ -51,6 +51,8 @@ uv init --app apps/server
 uv init --app apps/another-server
 ```
 
+> `uv` is used here as the build backend, but you can choose others like `setuptools` or `hatch`. This is also the default for `uv init` until UV changes it's default in the future.
+
 This also updates the root `pyproject.toml` to include the new apps as workspace members.
 
 ### 3. Create Shared Libraries
@@ -62,7 +64,19 @@ uv init --lib lib/logger
 uv init --lib lib/db
 ```
 
+> `uv` is used here as the build backend, but you can choose others like `setuptools` or `hatch`. This is also the default for `uv init` until UV changes it's default in the future.
+
 Again, this updates the workspace to include these libraries.
+
+#### Important Note
+
+To support any of your project structure, it is advisable to manually edit the `pyproject.toml` files of each app and library and delete the following section (or equivalent) that `uv init` adds by default:
+
+```toml
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+```
 
 ### 4. Add External Dependencies
 
